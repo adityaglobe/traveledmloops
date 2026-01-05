@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Package Prediction</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Travel Product Prediction</h2>
+
+    <form action="/predict" method="post">
+
+        <input type="number" name="Age" placeholder="Age" required>
+        <input type="number" name="TypeofContact" placeholder="TypeofContact (Encoded)" required>
+        <input type="number" name="CityTier" placeholder="CityTier" required>
+        <input type="number" name="DurationOfPitch" placeholder="DurationOfPitch" required>
+        <input type="number" name="Occupation" placeholder="Occupation (Encoded)" required>
+        <input type="number" name="Gender" placeholder="Gender (Encoded)" required>
+        <input type="number" name="NumberOfPersonVisiting" required>
+        <input type="number" name="NumberOfFollowups" required>
+        <input type="number" name="ProductPitched" placeholder="ProductPitched (Encoded)" required>
+        <input type="number" name="PreferredPropertyStar" required>
+        <input type="number" name="MaritalStatus" placeholder="MaritalStatus (Encoded)" required>
+        <input type="number" name="NumberOfTrips" required>
+        <input type="number" name="Passport" required>
+        <input type="number" name="PitchSatisfactionScore" required>
+        <input type="number" name="OwnCar" required>
+        <input type="number" name="NumberOfChildrenVisiting" required>
+        <input type="number" name="Designation" placeholder="Designation (Encoded)" required>
+        <input type="number" name="MonthlyIncome" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result">{{ prediction }}</div>
+    {% endif %}
+</div>
+
+</body>
+</html>

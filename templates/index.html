@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Package Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>✈️ Travel Package Prediction</h1>
+
+    <form action="/predict" method="post">
+
+        <div class="grid">
+
+            <input type="number" name="Age" placeholder="Age" required>
+
+            <select name="TypeofContact" required>
+                <option value="">Type of Contact</option>
+                <option value="0">Company Invited</option>
+                <option value="1">Self Enquiry</option>
+            </select>
+
+            <input type="number" name="CityTier" placeholder="City Tier" required>
+            <input type="number" name="DurationOfPitch" placeholder="Duration Of Pitch" required>
+
+            <select name="Occupation" required>
+                <option value="">Occupation</option>
+                <option value="0">Free Lancer</option>
+                <option value="1">Large Business</option>
+                <option value="2">Salaried</option>
+                <option value="3">Small Business</option>
+            </select>
+
+            <select name="Gender" required>
+                <option value="">Gender</option>
+                <option value="0">Fe Male</option>
+                <option value="1">Female</option>
+                <option value="2">Male</option>
+            </select>
+
+            <input type="number" name="NumberOfPersonVisiting" placeholder="Persons Visiting" required>
+            <input type="number" name="NumberOfFollowups" placeholder="Followups" required>
+
+            <select name="ProductPitched" required>
+                <option value="">Product Pitched</option>
+                <option value="0">Basic</option>
+                <option value="1">Deluxe</option>
+                <option value="2">King</option>
+                <option value="3">Standard</option>
+                <option value="4">Super Deluxe</option>
+            </select>
+
+            <input type="number" name="PreferredPropertyStar" placeholder="Property Star" required>
+
+            <select name="MaritalStatus" required>
+                <option value="">Marital Status</option>
+                <option value="0">Divorced</option>
+                <option value="1">Married</option>
+                <option value="2">Single</option>
+                <option value="3">Unmarried</option>
+            </select>
+
+            <input type="number" name="NumberOfTrips" placeholder="Number of Trips" required>
+            <input type="number" name="Passport" placeholder="Passport (0/1)" required>
+            <input type="number" name="PitchSatisfactionScore" placeholder="Pitch Satisfaction" required>
+            <input type="number" name="OwnCar" placeholder="Own Car (0/1)" required>
+            <input type="number" name="NumberOfChildrenVisiting" placeholder="Children Visiting" required>
+
+            <select name="Designation" required>
+                <option value="">Designation</option>
+                <option value="0">AVP</option>
+                <option value="1">Executive</option>
+                <option value="2">Manager</option>
+                <option value="3">Senior Manager</option>
+                <option value="4">VP</option>
+            </select>
+
+            <input type="number" name="MonthlyIncome" placeholder="Monthly Income" required>
+
+        </div>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">{{ prediction }}</div>
+    {% endif %}
+</div>
+
+</body>
+</html>
